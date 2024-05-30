@@ -1,0 +1,234 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<style>
+    .cover {
+        width: 150%;
+        height: auto;
+        padding:30px;
+        background: linear-gradient(to right, #1489ff, hsl(0, 0%, 0%));
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;  
+        
+      }  
+  .signin-container {
+    background-color: #fff;
+    height: auto;
+  
+width: 50%;
+  
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .input-group label {
+    margin-top: 20px;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.88rem;
+    font-weight: 500;
+  }
+  
+  .input-group input {
+    height: 45px;
+    font-size: 17px;
+    width: 100%;
+    padding: 8px 8px 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px 10px;
+    align-items: center;
+    margin-left: -10px;
+  }
+  
+  
+  .rmb {
+    margin-left: 20px;
+  }
+  
+  .error-message {
+    color: rgb(178, 38, 38);
+    margin-bottom: 10px;
+  }
+  
+  .btn {
+    background-color: #1a84f6;
+    color: #fff;
+    text-align: center;
+    position: center;
+    border: 1px solid rosybrown;
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px 10px;
+    cursor: pointer;
+    margin-left: -10px;
+    margin-top: 30px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  h2 {
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  p {
+    margin-top: 20px;
+    text-align: center;
+    color: #007bff;
+  }
+  
+  .welcom {
+    color: #000;
+    font-weight: 500;
+  }
+  
+  .hello h1 {
+    color: #fff;
+    font-size: 50px;
+    text-align: center;
+    margin-top: -100px;
+  }
+  
+  .hello p {
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .hello .btnn {
+    color: #fff;
+    text-align: center;
+    position: center;
+    border: 1px solid rgb(238, 255, 0);
+    border-radius: 10px;
+    width: 100px;
+    padding: 10px 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: inline-block;
+    text-decoration: none;
+    margin-left: 70px;
+    color: #fff;
+  }
+  
+  .hello .btnn:hover {
+    width: 104px;
+    background-color: #fff;
+    color: #000;
+  
+  }
+  
+ 
+  .navbar{
+    background-color: #00000012;
+    box-shadow: 5px 2px 52px;
+    height: auto;
+  }
+    .navbar a{
+    width: 200px;
+    font-size: 20px;
+    color: #fff;
+    }
+    .link:hover,
+    .active {
+        border-bottom: 2px solid #fff;
+    }
+    .navbar button{
+      background:#fff;
+      width: 100%;
+    }
+    
+</style>
+<div class="container">
+    <div class="row ">
+        <div class="col-md-8">
+            <div class="cover">
+                <div class="hello">
+                    <h1>Bienvenue</h1>
+                    <p>
+                        Avez-vous déjà un compte?
+                        <br />
+                        Créer un compte
+                    </p>
+                    <a class="btnn" href="{% url 'login' %}">Inscription</a>
+                </div>
+                <div class="signin-container">
+                    <form method="post" action="{% url 'inscription' %}">
+                        {% csrf_token %}
+                        <h2>S'Inscrire</h2>
+                        <p class="welcome">Bienvenue! Veuillez introduire vos informations.</p>
+
+                    
+                        {% if messages %}
+                        <div class="error-message">
+                            {% for message in messages %}
+                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        <div class="input-group">
+                            <label for="nom">Nom</label>
+                            <input placeholder="Entrer votre nom" type="text" id="nom" name="nom" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="prenom">Prénom</label>
+                            <input placeholder="Entrer votre prénom" type="text" id="prenom" name="prenom" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="spe">Spécialité</label>
+                            <input placeholder="Spécialité" type="text" id="spe" name="spe" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="email">Email:</label>
+                            <input placeholder="Entrer votre email" type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="mdp">Mot de passe :</label>
+                            <input placeholder="Entrer un mot de passe" type="password" id="mdp" name="mdp" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="mdp1">Confirmer le mot de passe:</label>
+                            <input placeholder="Confirmer le mot de passe" type="password" id="mdp1" name="mdp1" required>
+                        </div>
+
+                        <div class="two-col">
+                       <label for="register-check"> Remember Me</label>
+                            <input type="checkbox" id="register-check" >
+                            
+                       
+                        <a ></a>
+                        <a ></a>
+                    </div>
+                        <button class="btn" type="submit">Sign In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

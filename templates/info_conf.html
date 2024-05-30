@@ -1,0 +1,106 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .containerr {
+    background-color: aliceblue;
+    border-radius: 20px;
+    width: 1200px;
+    padding: 20px;
+    margin: 100px auto;
+    /* Centering the container horizontally */
+  }
+
+
+  p {
+    font-size: 18px;
+    color: black;
+  }
+
+  .butt {
+    height: 50px;
+    width: 300px;
+    border: 1px solid black;
+    background-color: rgba(0, 136, 255, 0.607);
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-left: 440px;
+  }
+
+  .aa {
+    color: #000;
+    width: 30px;
+  }
+
+  a:hover {
+    color: #fff;
+  }
+
+  .det:hover {
+    color: #000;
+  }
+
+  @media only screen and (max-width: 786px) {
+    .containerr {
+      width: 100%;
+      margin-left: 0px;
+    }
+
+    .butt {
+      width: 100%;
+      margin-left: 0px;
+    }
+  }
+
+  .det {
+    font-size: 20px;
+    font-weight: 500;
+    color: blue;
+
+  }
+</style>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:svgjs="http://svgjs.dev/svgjs" width="1036" height="635" preserveAspectRatio="none" viewBox="0 0 1036 635"
+  class="svg-background">
+  <g mask="url(&quot;#SvgjsMask3553&quot;)" fill="none">
+    <rect width="1036" height="635" x="0" y="0" fill="rgba(149, 192, 237, 0.69)"></rect>
+    <path
+      d="M0,354.435C74.082,349.824,148.039,364.503,217.588,338.574C298.582,308.379,384.256,270.102,427.291,195.137C471.433,118.244,457.256,23.721,449.014,-64.558C440.39,-156.922,437.931,-256.742,378.454,-327.932C318.658,-399.505,222.309,-427.46,130.796,-445.449C45.057,-462.303,-45.939,-463.387,-125.37,-426.973C-199.849,-392.829,-241.588,-317.502,-290.946,-252.106C-336.957,-191.146,-378.216,-130.018,-403.813,-58.06C-434.645,28.612,-488.302,122.002,-454.457,207.543C-420.59,293.139,-323.309,338.475,-235.719,366.786C-159.305,391.485,-80.152,359.423,0,354.435"
+      fill="rgba(36, 123, 215, 0.69)"></path>
+    <path
+      d="M1036 984.509C1105.5819999999999 981.0260000000001 1182.182 990.923 1237.623 948.732 1292.213 907.188 1284.8890000000001 823.1030000000001 1323.025 766.08 1371.951 692.925 1483.314 657.202 1491.218 569.55 1498.923 484.102 1425.234 410.03 1360.174 354.101 1300.137 302.491 1220.589 286.472 1143.091 270.283 1071.074 255.23899999999998 996.021 238.26999999999998 926.948 263.602 859.681 288.272 819.626 352.713 772.1089999999999 406.337 724.023 460.60400000000004 655.49 507.073 647.363 579.122 639.2660000000001 650.911 701.2339999999999 708.465 730.585 774.4780000000001 760.307 841.327 760.691 928.136 820.972 969.5899999999999 881.396 1011.143 962.759 988.1759999999999 1036 984.509"
+      fill="rgba(255, 255, 255, 0.69)"></path>
+  </g>
+  <defs>
+    <mask id="SvgjsMask3553">
+      <rect width="1036" height="635" fill="#ffffff"></rect>
+    </mask>
+  </defs>
+</svg>
+
+<div class="containerr">
+  <div class="titel"><br>
+    <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; height: 130px;">Nom de la
+      conférence :{{conf.nomc}} <br></h1>
+  </div>
+  <hr>
+  <h4>Dates : {{conf.DateD}}<br>Lieu :{{conf.lieu}}, {{conf.pays}}</h4>
+  <h3><br>Thème : "{{conf.domaine}}"</h3>
+  <br>
+  <p><b>Description:</b></p>
+  <p>{{conf.desc}}</p>
+  <button class="butt"><a class="aa" href="{% url 'postuler' conf.id %}">Postuler </a></button><br>
+</div>
+<hr>
+
+
+{% endblock content %}

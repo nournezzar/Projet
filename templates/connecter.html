@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>connecter</title>
+  <link rel="stylesheet" href="{% static  'css/min.css' %}">
+   <link rel="stylesheet" href="{% static 'css/spiki.css' %}">
+
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+   <style>
+    .navbar {
+
+      box-shadow: 5px 2px 52px;
+      height: 100px;
+
+    }
+
+    .navbar a {
+      width: 200px;
+      font-size: 20px;
+      color: #fff;
+    }
+
+    .link:hover,
+    .active {
+      border-bottom: 2px solid #fff;
+    }
+
+    svg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .cover-loge {
+      width: 50%;
+      margin-top: 100px;
+    }
+
+    .btn {
+      background-color: #1a84f6;
+      color: #fff;
+      text-align: center;
+      position: center;
+      border: 1px solid rosybrown;
+      border-radius: 10px;
+      width: 100%;
+      padding: 10px 10px;
+      cursor: pointer;
+      margin-left: -10px;
+      margin-top: 100px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+    
+.cover-loge {
+  width: 50%;
+  height: auto;
+  padding: 30px;
+  background: linear-gradient(to right, #1489ff, hsl(0, 0%, 0%));
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  margin-top: 100px;
+
+}
+
+.signin-container {
+  background-color: #fff;
+  height: 540px;
+  padding: 20px;
+  width: 70%;
+  align-items: end;
+  margin-left: 120px;
+  border-radius: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  margin-top: 20px;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.input-group input {
+  height: 45px;
+  font-size: 17px;
+  width: 100%;
+  padding: 8px 8px 8px;
+  border: 1px solid #ccc;
+  border-radius: 10px 10px;
+  align-items: center;
+  margin-left: -10px;
+}
+
+
+
+.error-message {
+  color: rgb(178, 38, 38);
+  margin-bottom: 10px;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  
+}
+
+h2 {
+  font-size: 40px;
+  text-align: center;
+}
+
+p {
+  margin-top: 20px;
+  text-align: center;
+  color: #007bff;
+}
+
+.welcom {
+  color: #000;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.hello h1 {
+  color: #fff;
+  font-size: 60px;
+  font-weight: 500px;
+  text-align: center;
+  margin-top: -100px;
+}
+
+.hello p {
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.hello .btnn {
+  color: #fff;
+  text-align: center;
+  position: center;
+  border: 1px solid rgb(238, 255, 0);
+  border-radius: 10px;
+  width: 100px;
+  padding: 10px 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  /* Adjust margin as needed */
+  display: inline-block;
+  /* Ensures the anchor behaves like an inline element */
+  text-decoration: none;
+  margin-left: 70px;
+  color: #ffffff;
+}
+
+.hello .btnn:hover {
+  width: 104px;
+
+  background-color: #ffffff;
+  color: #000;
+
+}
+.hello{
+  width:50%;
+}
+
+  </style>
+
+</head>
+
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svgjs="http://svgjs.dev/svgjs" width="1036" height="635" preserveAspectRatio="none" viewBox="0 0 1036 635"
+    class="svg-background">
+    <g mask="url(&quot;#SvgjsMask3553&quot;)" fill="none">
+      <rect width="1036" height="635" x="0" y="0" fill="rgba(149, 192, 237, 0.69)"></rect>
+      <path
+        d="M0,354.435C74.082,349.824,148.039,364.503,217.588,338.574C298.582,308.379,384.256,270.102,427.291,195.137C471.433,118.244,457.256,23.721,449.014,-64.558C440.39,-156.922,437.931,-256.742,378.454,-327.932C318.658,-399.505,222.309,-427.46,130.796,-445.449C45.057,-462.303,-45.939,-463.387,-125.37,-426.973C-199.849,-392.829,-241.588,-317.502,-290.946,-252.106C-336.957,-191.146,-378.216,-130.018,-403.813,-58.06C-434.645,28.612,-488.302,122.002,-454.457,207.543C-420.59,293.139,-323.309,338.475,-235.719,366.786C-159.305,391.485,-80.152,359.423,0,354.435"
+        fill="rgba(36, 123, 215, 0.69)"></path>
+      <path
+        d="M1036 984.509C1105.5819999999999 981.0260000000001 1182.182 990.923 1237.623 948.732 1292.213 907.188 1284.8890000000001 823.1030000000001 1323.025 766.08 1371.951 692.925 1483.314 657.202 1491.218 569.55 1498.923 484.102 1425.234 410.03 1360.174 354.101 1300.137 302.491 1220.589 286.472 1143.091 270.283 1071.074 255.23899999999998 996.021 238.26999999999998 926.948 263.602 859.681 288.272 819.626 352.713 772.1089999999999 406.337 724.023 460.60400000000004 655.49 507.073 647.363 579.122 639.2660000000001 650.911 701.2339999999999 708.465 730.585 774.4780000000001 760.307 841.327 760.691 928.136 820.972 969.5899999999999 881.396 1011.143 962.759 988.1759999999999 1036 984.509"
+        fill="rgba(255, 255, 255, 0.69)"></path>
+    </g>
+    <defs>
+      <mask id="SvgjsMask3553">
+        <rect width="1036" height="635" fill="#ffffff"></rect>
+      </mask>
+    </defs>
+  </svg>
+  {% if user_role == 'reviewer' %}
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">LOGO .</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" style="margin-left: 350px;">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'conf' %}">conference</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'rev_p' %}">reviewer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About us </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% elif user_role == 'editc' %}
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">LOGO .</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" style="margin-left: 350px;">
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'R1' %}">article</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'conf' %}">conference</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'archiveconf' %}">Archife</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About us </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% elif user_role == 'auteur' %}
+  <nav class="navbar  navbar-expand-lg ">
+    <a class="btn border-0" id="menu-btn">Menu</a>
+    <div class="container">
+      <a class="navbar-brand" href="#">LOGO .</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'conf' %}">Conference</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% elif user_role == 'guest' %}
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">LOGO .</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" style="margin-left: 550px;">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'conf' %}">conference</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%  url 'about' %}">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}"><i class='bx bxs-user-circle'></i>Se connecter </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'inscription' %}"><i class='bx bxs-user-circle'></i>S'inscrire</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% endif %}
+  <div class="row justify-content-center">
+    <div class="cover-loge">
+      <div class="hello">
+        <h1>Bienvenue</h1>
+        <p><br />créer un compte</p>
+        <a class="btnn" href="{% url 'inscription' %}">S'Inscrire</a>
+      </div>
+      <div class="signin-container">
+        <form method="post" action="{% url 'login' %}?next={{ request.GET.next }}">
+          {% csrf_token %}
+          <h2>Se connecter</h2>
+          <p class="welcom">Bienvenue</p>
+          {% if messages %}
+          <div class="error-message">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+              {% endfor %}
+          </div>
+          {% endif %}
+          <div class="input-group">
+            <label>Email:</label>
+            <input placeholder="Entrer votre email" type="email" id="email" name="email" required>
+          </div>
+          <div class="input-group">
+            <label>Mot de passe:</label>
+            <input placeholder="Entrer votre mot de passe" type="password" id="mdp" name="mdp" required>
+          </div>
+          <div class="two-col">
+
+            <input type="checkbox" id="register-check">
+            <label for="register-check"> se souvenir de moi </label>
+
+            <a href="/forgot-password">mot de passe oublié</a>
+          </div>
+          <button class="btn" type="submit">Se connecter</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

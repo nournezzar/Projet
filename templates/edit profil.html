@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+
+    <link rel="stylesheet" href="{% static  'css/min.css' %}">
+    <script src="{% static 'js/bnd.js' %}"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      main {
+    padding: 20px;
+            }
+body {
+
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background: linear-gradient(to right, rgb(215, 225, 255), rgba(61, 161, 255, 0.5));
+background: url("Simple\ Shiny\ \(2\).svg");
+    background-size: cover;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+      
+  .navbar{
+    
+    box-shadow: 5px 2px 52px;
+    height: 100px;
+    
+    }
+    .navbar a{
+    width: 200px;
+    font-size: 20px;
+    color: #fff;
+    }
+    .link:hover,
+    .active {
+        border-bottom: 2px solid #fff;
+    }
+
+.edit-profile-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 2px 2px 20px #000;
+    background-color: #fff;
+}
+
+.edit-profile-form .image {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #000000;
+    padding: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <!-- Sidebar -->
+            <div class="row flex-nowrap">
+              <div class="col-auto col-md-3 col-xl-1 px-sm-2 px-0 bg-dark">
+                  <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                      <a href=""
+                          class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                          <span class="fs-5 d-none d-sm-inline">profil settings</span>
+                      </a>
+
+                      <hr>
+                      <div class="dropdown pb-4">
+                          <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="hugenerd" width="30"height="30" class="rounded-circle">
+                              <span class="d-none d-sm-inline mx-1">User</span>
+                          </a>
+                          <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                              <li><a class="dropdown-item" href="{% url 'uprev' %}">passe au compt reviewer...</a></li>
+                              <li><a class="dropdown-item" href="{% url 'editpro' %}">Edit profil</a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item" href="{% url 'decc' %}">Sign out</a></li>
+
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+           
+            <div class="col py-3">
+                {% if user_role == 'reviewer' %}
+   <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#">LOGO .</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav" style="margin-left: 350px;">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'conf' %}">conference</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'rev_p' %}">reviewer</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">About us </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% elif user_role == 'editc' %}
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#">LOGO .</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav" style="margin-left: 350px;">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'R1' %}">article</a>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link" href="{% url 'conf' %}">conference</a>
+            </li>
+           
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'archiveconf' %}">Archife</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">About us </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% elif user_role == 'auteur' %}
+    <nav class="navbar  navbar-expand-lg ">
+      <a class="btn border-0" id="menu-btn">Menu</a>
+        <div class="container">
+          <a class="navbar-brand" href="#">LOGO .</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'conf' %}">Conference</a>
+              </li>
+              <li class="nav-item">
+               <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+             </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    {% elif user_role == 'guest' %}
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#">LOGO .</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav" style="margin-left: 550px;">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'conf' %}">conference</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{%  url 'about' %}">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}"><i class='bx bxs-user-circle'></i>Se connecter </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'inscription' %}"><i class='bx bxs-user-circle'></i>S'inscrire</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+   {% endif %}
+                <main>
+                    <form class="edit-profile-form" style="margin-top: 100px;">
+                        <div class="image">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                            <h1 style="color: #fff;">Edit Profile</h1>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username" placeholder="Enter your username" >
+                        </div>
+                        <div class="form-group">
+                          <label for="username">Spésialité:</label>
+                          <input type="text" id="username" name="username" placeholder="Enter your Spécialité" >
+                      </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" >
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" placeholder="Enter your password" >
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm Password:</label>
+                            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" >
+                        </div>
+                        <button type="submit" class="btn" style="
+
+                         width: 100%;
+                          background-color: #7e7e7e;
+                          color: #ffffff;
+                           padding: 10px;
+                           border: 1px solid #000;
+                           border-radius: 5px;
+                           cursor: pointer;
+                            margin-top: 50px;
+                            text-align: center;
+                            align-items: center;
+                            ">Save Changes</button>
+                    </form>
+                </main>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

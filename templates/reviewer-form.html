@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static  'css/min.css' %}">
+    <script src="{% static 'js/min.js' %}"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Potuler pour devenir reviewer :</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+</head>
+
+<body>
+
+
+  <style>
+  
+   
+    .navbar{
+      background-color: #00000012;
+      box-shadow: 5px 2px 52px;
+      height: auto;
+    }
+      .navbar a{
+      width: 200px;
+      font-size: 20px;
+      color: #fff;
+      }
+      .link:hover,
+      .active {
+          border-bottom: 2px solid #fff;
+      }
+      .navbar button{
+        background:#fff;
+        width: 100%;
+      }
+      
+    label{
+      margin 0 auto;
+      font-weight: bold;
+      
+    }
+    a{
+     color:#fff;
+      font-weight: bold;
+      width: 100%;
+    }
+    svg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    
+      
+        </style>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="1036" height="635" preserveAspectRatio="none" viewBox="0 0 1036 635" class="svg-background">
+              <g mask="url(&quot;#SvgjsMask3553&quot;)" fill="none">
+                <rect width="1036" height="635" x="0" y="0" fill="rgba(149, 192, 237, 0.69)"></rect>
+                <path d="M0,354.435C74.082,349.824,148.039,364.503,217.588,338.574C298.582,308.379,384.256,270.102,427.291,195.137C471.433,118.244,457.256,23.721,449.014,-64.558C440.39,-156.922,437.931,-256.742,378.454,-327.932C318.658,-399.505,222.309,-427.46,130.796,-445.449C45.057,-462.303,-45.939,-463.387,-125.37,-426.973C-199.849,-392.829,-241.588,-317.502,-290.946,-252.106C-336.957,-191.146,-378.216,-130.018,-403.813,-58.06C-434.645,28.612,-488.302,122.002,-454.457,207.543C-420.59,293.139,-323.309,338.475,-235.719,366.786C-159.305,391.485,-80.152,359.423,0,354.435" fill="rgba(36, 123, 215, 0.69)"></path>
+                <path d="M1036 984.509C1105.5819999999999 981.0260000000001 1182.182 990.923 1237.623 948.732 1292.213 907.188 1284.8890000000001 823.1030000000001 1323.025 766.08 1371.951 692.925 1483.314 657.202 1491.218 569.55 1498.923 484.102 1425.234 410.03 1360.174 354.101 1300.137 302.491 1220.589 286.472 1143.091 270.283 1071.074 255.23899999999998 996.021 238.26999999999998 926.948 263.602 859.681 288.272 819.626 352.713 772.1089999999999 406.337 724.023 460.60400000000004 655.49 507.073 647.363 579.122 639.2660000000001 650.911 701.2339999999999 708.465 730.585 774.4780000000001 760.307 841.327 760.691 928.136 820.972 969.5899999999999 881.396 1011.143 962.759 988.1759999999999 1036 984.509" fill="rgba(255, 255, 255, 0.69)"></path>
+              </g>
+              <defs>
+                <mask id="SvgjsMask3553">
+                  <rect width="1036" height="635" fill="#ffffff"></rect>
+                </mask>
+              </defs>
+            </svg>
+            {% if user_role == 'reviewer' %}
+            <nav class="navbar navbar-expand-lg">
+               <div class="container">
+                 <a class="navbar-brand" href="#">LOGO .</a>
+                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                   aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                   <span class="navbar-toggler-icon"></span>
+                 </button>
+                 <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+                   <ul class="navbar-nav" style="margin-left: 350px;">
+                     <li class="nav-item">
+                       <a class="nav-link" href="{% url 'conf' %}">conference</a>
+                     </li>
+                     <li class="nav-item">
+                       <a class="nav-link" href="{% url 'rev_p' %}">reviewer</a>
+                     </li>
+                     <li class="nav-item">
+                       <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+                     </li>
+                      <li class="nav-item">
+                       <a class="nav-link" href="{% url 'about' %}">About us </a>
+                     </li>
+                     <li class="nav-item">
+                       <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+                     </li>
+                   </ul>
+                 </div>
+               </div>
+             </nav>
+             {% elif user_role == 'editc' %}
+             <nav class="navbar navbar-expand-lg">
+              <div class="container">
+                <a class="navbar-brand" href="#">LOGO .</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav" style="margin-left: 350px;">
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'R1' %}"> Ma Confernece</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'conf' %}">conference</a>
+                    </li>
+                   
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+                    </li>
+                     <li class="nav-item">
+                      <a class="nav-link" href="{% url 'about' %}">About us </a>
+                    </li>
+                    <li class="nav-item ">
+                      <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+             {% elif user_role == 'auteur' %}
+             <nav class="navbar  navbar-expand-lg ">
+                 <div class="container">
+                   <a class="navbar-brand" href="#">LOGO .</a>
+                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                     <span class="navbar-toggler-icon"></span>
+                   </button>
+                   <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+                     <ul class="navbar-nav">
+                       <li class="nav-item">
+                         <a class="nav-link active" aria-current="page" href="{% url 'conf' %}">Conference</a>
+                       </li>
+                       <li class="nav-item">
+                        <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+                      </li>
+                       <li class="nav-item">
+                         <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+                       </li>
+                       <li class="nav-item">
+                         <a class="nav-link" href="{% url 'about' %}">About us </a>
+                       </li>
+                     </ul>
+                   </div>
+                 </div>
+             </nav>
+             {% elif user_role == 'guest' %}
+             <nav class="navbar navbar-expand-lg">
+               <div class="container">
+                 <a class="navbar-brand" href="#">LOGO .</a>
+                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                   aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                   <span class="navbar-toggler-icon"></span>
+                 </button>
+                 <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+                   <ul class="navbar-nav" style="margin-left: 550px;">
+                     <li class="nav-item">
+                       <a class="nav-link" href="{% url 'conf' %}">conference</a>
+                     </li>
+                     <li class="nav-item">
+                       <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+                     </li>
+                     <li class="nav-item">
+                       <a class="nav-link" href="{%  url 'about' %}">About us</a>
+                     </li>
+                     <li class="nav-item">
+                       <a class="nav-link" href="{% url 'login' %}"><i class='bx bxs-user-circle'></i>Se connecter </a>
+                     </li>
+                     <li class="nav-item">
+                       <a class="nav-link" href="{% url 'inscription' %}"><i class='bx bxs-user-circle'></i>S'inscrire</a>
+                     </li>
+                   </ul>
+                 </div>
+               </div>
+             </nav>
+            {% endif %}
+      
+      
+  {% if msg %}
+  <p>{{msg}}</p>
+  {% endif %}
+
+
+  <section class="container-fluid pt-3">
+    <main class="row justify-content-evenly">
+      <article class=" pt-2"style="text-align: center;">
+          <div class="p-3 text-dark rounded">
+
+            <h1>Devenez reviewer et contribuez à la communauté scientifique !</h1>
+            <div class="p-5">
+              <h4>  Partagez votre expertise  </h4>
+              <p>En activant un compte reviewier,</p>
+              <p>Participez activement à l'évaluation des articles de qualité pour la conference de votre choix :</p>
+            </div>
+          </div>
+      </article>
+      <article class="col-sm">
+        <form class="p-3" style="max-width: 550px; border: 1px solid #eee; border-radius: 20px; background-color: #fff;margin:0 auto;"
+        method="post" action="{% url 'uprev' %}">
+          {% csrf_token %}
+          
+        <h2>Postuler :</h2>
+        {% if errP %}
+     <p style="color:red;font-width:600; text-align:center; "">{{errP}}</p>
+     {% endif %}
+        <!--ma3reftech ndir test -->
+        {% if msg %}
+        <p style="color:red;font-width:600; text-align:center; "">{{msg}}</p>
+        {% endif %}
+      <label> Veuillez ajouter vos travaux recents :<br> </label>
+      <button style="width: 100%; border-radius: 20px; height: 40px; margin:  20px 0; background-color:#7a8c9e;"><a href="{% url 'prjform'%}" target="_blank">Ajouter</a></button>
+
+   
+<label style="font-weight: 500; margin: 1;">Les conferances</label>
+<select name="confc" style="margin-top: 10px; font-weight: 500; font-size: 14px; width: 100%; height: 40px; border: 2px solid #000; border-radius: 20px;" aria-placeholder="">
+    <option style="font-weight: 500; font-size: 14px;" value="">Selectionner une conference:</option>
+    {% if conflist %}
+        {% for conf in conflist %}
+            
+              {% if conf not in conff%}
+            <option value="{{ conf }}">{{ conf }}</option>
+              
+              {% endif %}
+
+        {% endfor %}
+    {% endif %}
+</select>
+
+
+      <div style="margin-top: 20px;" data-mdb-input-init class="form-outline mb-4">
+              <textarea class="form-control" id="descriptionField" name="desc" rows="4"
+              placeholder="Donnez une description de votre profile"  required></textarea>
+      </div>
+
+
+      <span id="fileError"></span>
+      <span id="descriptionError"></span>
+
+      <button style="width: 100%; border-radius: 20px;" data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4 p-2 text-center">Enregistrer</button>
+  </form>
+
+      </article>
+    </main>
+  </section>
+
+</body>
+
+</html>

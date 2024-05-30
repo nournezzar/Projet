@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static  'css/min.css' %}">
+  <script src="{% static 'js/bnd.js' %}"></script>
+
+  <style>
+ 
+.navbar{
+  background-color: #00000012;
+  box-shadow: 5px 2px 52px;
+  height: auto;
+}
+  .navbar a{
+  width: 200px;
+  font-size: 20px;
+  color: #fff;
+  }
+  .link:hover,
+  .active {
+      border-bottom: 2px solid #fff;
+  }
+  .navbar button{
+    background:#fff;
+    width: 100%;
+  }
+  
+    body {
+      background-color: #b3cde0;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 50px;
+      font-weight: 500;
+      color: #0080ff;
+      margin-top: 30px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .container {
+
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .text1 {
+      margin-left: 200px;
+      width: 30%;
+      font-size: 24px;
+      font-weight: 500;
+      text-align: center;
+      border-radius: 20px;
+      margin-top: 100px;
+      float: left;
+
+    }
+
+
+    .contuct {
+      font-size: 20px;
+      font-weight: 500;
+      margin-left: 200px;
+      margin-top: 100px;
+    }
+
+    footer {
+      margin-top: 100px;
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    footer #contact-info {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .containerr {
+      width: 40%;
+      margin-right: 50px;
+      background-color: #fff;
+      padding: 20px;
+      padding: 50px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      float: right;
+      margin-top: 200px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+
+  {% if user_role == 'reviewer' %}
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">LOGO .</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" style="margin-left: 500px;">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'conf' %}">conference</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'rev_p' %}">reviewer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'about' %}">About us </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% elif user_role == 'editc' %}
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">LOGO .</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" style="margin-left: 350px;">
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'R1' %}">Ma conference</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'conf' %}">conference</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'archiveconf' %}">Archife</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'about' %}">About us </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% elif user_role == 'auteur' %}
+  <nav class="navbar  navbar-expand-lg ">
+    <div class="container">
+      <a class="navbar-brand" href="#">LOGO .</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="{% url 'conf' %}">Conference</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'about' %}">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% elif user_role == 'guest' %}
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">LOGO .</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" style="margin-left: 550px;">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'conf' %}">conference</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{%  url 'about' %}">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}"><i class='bx bxs-user-circle'></i>Se connecter </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'inscription' %}"><i class='bx bxs-user-circle'></i>S'inscrire</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% endif %}
+
+  <div class="container">
+
+    <h1> Bienvenue sur notre plateforme dédiée aux conférences académiques !</h1>
+  </div>
+
+
+  <div class="containerr">
+    {% if mess %}
+    <p>{{mess}}</p>
+    {%endif%}
+    <h2>Contacter nous </h2>
+    <form action="#" method="post">
+      {% csrf_token %}
+      <label for="name">Nom:</label>
+      <input type="text" id="nom" name="nom" required>
+
+      <label for="prenom">Prenom:</label>
+      <input type="text" id="prnom" name="prnom" required>
+
+      <label for="Sujet">Sujet:</label>
+      <input type="text" id="sujet" name="sujet" required>
+
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <input type="submit" style=" background-color: #0370ffc6; width:100%; border-radius:10px;" value="Envoyer">
+    </form>
+    
+  </div>
+  </div>
+  <div class="text1">Notre application web a été spécialement conçue pour répondre aux besoins
+    des chercheurs et simplifier la vie des éditeurs en chef en offrant une gestion complète des candidatures. Vous
+    pouvez également postuler pour devenir reviewer dans les conférences de votre choix, partageant ainsi votre
+    expertise en évaluant les travaux de vos pairs.<br><br><br>Pour les chercheurs, elle simplifie le processus de recherche et de candidature aux conférences.
+    Tandis que pour les éditeurs en chef et le comité d’organisation, notre plateforme offre un outil puissant de
+    gestion des candidatures et d'attribution des reviewers. Grâce à notre système d'intelligence artificielle basé sur
+    le Deep Learning, nous automatisons l'attribution des reviewers en recommandant les experts en fonction de leur
+    profil et de leur domaine d'expertise. 
+    <br><br><br>Prévoyez-vous d’organiser une conférence académique ?<br><a href="{% url 'cnconf' %}"> Contactez- nous
+      via ce lien pour en discuter !</a>
+  </div>
+
+  <div class="container">
+
+  </div>
+  <footer>
+    <section id="contact-info">
+      <h3>Contacter nous </h3>
+      <p>Email: info@example.com</p>
+      <p>Phone: +1234567890</p>
+    </section>
+  </footer>
+</body>
+
+</html>

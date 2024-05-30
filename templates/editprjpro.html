@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nouveau Article</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="{% static  'css/min.css' %}">
+  <script src="{% static 'js/min.js' %}"></script>
+  <script src="{% static 'js/bnd.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'css/spiki.css' %}">
+  <link rel="stylesheet" href="{% static  'css/min.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    main {
+      padding: 20px;
+    }
+
+
+
+    .navbar {
+
+      box-shadow: 5px 2px 52px;
+      height: 100px;
+
+    }
+
+    .navbar{
+      background-color: #00000012;
+      box-shadow: 5px 2px 52px;
+      height: auto;
+    }
+      .navbar a{
+      width: 200px;
+      font-size: 20px;
+      color: #fff;
+      }
+      .link:hover,
+      .active {
+          border-bottom: 2px solid #fff;
+      }
+      .navbar button{
+        background:#fff;
+        width: 100%;
+      }
+      
+
+    .project {
+      max-width: 600px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      box-shadow: 2px 2px 20px #000;
+      background-color: #fff;
+      margin: 0 auto;
+      margin-top: 100px;
+    }
+
+    .image {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      color: #000000;
+      padding: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .btn {
+
+      width: 45%;
+      background-color: #4b567f;
+      color: #ffffff;
+      padding: 10px;
+      border: 1px solid #000;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 50px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .bttn {
+      width: 45%;
+      background-color: #4f5364;
+      color: #ffffff;
+      padding: 10px;
+      border: 1px solid #000;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    svg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svgjs="http://svgjs.dev/svgjs" width="1036" height="635" preserveAspectRatio="none" viewBox="0 0 1036 635"
+    class="svg-background">
+    <g mask="url(&quot;#SvgjsMask3553&quot;)" fill="none">
+      <rect width="1036" height="635" x="0" y="0" fill="rgba(149, 192, 237, 0.69)"></rect>
+      <path
+        d="M0,354.435C74.082,349.824,148.039,364.503,217.588,338.574C298.582,308.379,384.256,270.102,427.291,195.137C471.433,118.244,457.256,23.721,449.014,-64.558C440.39,-156.922,437.931,-256.742,378.454,-327.932C318.658,-399.505,222.309,-427.46,130.796,-445.449C45.057,-462.303,-45.939,-463.387,-125.37,-426.973C-199.849,-392.829,-241.588,-317.502,-290.946,-252.106C-336.957,-191.146,-378.216,-130.018,-403.813,-58.06C-434.645,28.612,-488.302,122.002,-454.457,207.543C-420.59,293.139,-323.309,338.475,-235.719,366.786C-159.305,391.485,-80.152,359.423,0,354.435"
+        fill="rgba(36, 123, 215, 0.69)"></path>
+      <path
+        d="M1036 984.509C1105.5819999999999 981.0260000000001 1182.182 990.923 1237.623 948.732 1292.213 907.188 1284.8890000000001 823.1030000000001 1323.025 766.08 1371.951 692.925 1483.314 657.202 1491.218 569.55 1498.923 484.102 1425.234 410.03 1360.174 354.101 1300.137 302.491 1220.589 286.472 1143.091 270.283 1071.074 255.23899999999998 996.021 238.26999999999998 926.948 263.602 859.681 288.272 819.626 352.713 772.1089999999999 406.337 724.023 460.60400000000004 655.49 507.073 647.363 579.122 639.2660000000001 650.911 701.2339999999999 708.465 730.585 774.4780000000001 760.307 841.327 760.691 928.136 820.972 969.5899999999999 881.396 1011.143 962.759 988.1759999999999 1036 984.509"
+        fill="rgba(255, 255, 255, 0.69)"></path>
+    </g>
+    <defs>
+      <mask id="SvgjsMask3553">
+        <rect width="1036" height="635" fill="#ffffff"></rect>
+      </mask>
+    </defs>
+  </svg>
+  {% if user_role == 'reviewer' %}
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">LOGO .</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" style="margin-left: 350px;">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'conf' %}">conference</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'rev_p' %}">reviewer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About us </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% elif user_role == 'editc' %}
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">LOGO .</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" style="margin-left: 350px;">
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'R1' %}">article</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'conf' %}">conference</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'archiveconf' %}">Archife</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About us </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% elif user_role == 'auteur' %}
+  <nav class="navbar  navbar-expand-lg ">
+    <a class="btn border-0" id="menu-btn">Menu</a>
+    <div class="container">
+      <a class="navbar-brand" href="#">LOGO .</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'conf' %}">Conference</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% elif user_role == 'guest' %}
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">LOGO .</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" style="margin-left: 550px;">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'conf' %}">conference</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%  url 'about' %}">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}"><i class='bx bxs-user-circle'></i>Se connecter </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'inscription' %}"><i class='bx bxs-user-circle'></i>S'inscrire</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% endif %}
+  <form class="project" method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+    {% if messages %}
+    <div class="error-message" style="color:red; text-align: center;  font-size: 20px;
+                                    font-weight: 500; height:50px;">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="form-group">
+      <label>Title:</label>
+      <input type="text" name="titre" value="{{prj.titre}}" placeholder="Title" required>
+    </div>
+    <div class="form-group">
+
+
+      <div class="form-group">
+        <label>Année:</label>
+        <input type="number" name="annee" placeholder="Entrez l'année de publication" value="{{prj.annee}}" min="1900"
+          max="2099" step="1" required>
+      </div>
+      {% if prj.coaut1 %}
+      <div id="coAuteursGroup">
+        <div class="form-group">
+          <label for="coAuteurs">Co-Auteur1:</label>
+          <input type="text" value="{{prj.coaut1}}" class="form-control coAuteur" name="co1" style="margin: 10px auto;"
+            placeholder="Entrez l'email  des co-auteurs">
+        </div>
+      </div>
+      {% endif %}
+      {% if prj.coaut2 %}
+      <div id="coAuteursGroup">
+        <div class="form-group">
+          <label for="coAuteurs">Co-Auteur2:</label>
+          <input type="text" value="{{prj.coaut2}}" class="form-control coAuteur" name="co2" style="margin: 10px auto;"
+            placeholder="Entrez l'email  des co-auteurs">
+        </div>
+      </div>
+      {% endif %}
+      {% if prj.coaut3 %}
+      <div id="coAuteursGroup">
+        <div class="form-group">
+          <label for="coAuteurs">Co-Auteur3:</label>
+          <input type="text" value="{{prj.coaut3}}" class="form-control coAuteur" name="co3" style="margin: 10px auto;"
+            placeholder="Entrez l'email  des co-auteurs">
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="form-group">
+        <label>Le resumé:</label>
+        <textarea name="abs" value="" id="" cols="71" rows="5" placeholder="la description de votre project..."
+          required>{{prj.resum}}</textarea>
+      </div>
+
+
+      <div style="text-align: center;">
+        <button type="button" class="btn"><a style="" href="{% url 'profil' %}">Annuler</a></button>
+
+        <button type="submit" class="btn">Enregistrer</button>
+      </div>
+
+
+  </form>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+
+</body>
+
+</html>

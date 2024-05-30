@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+  <link rel="stylesheet" href="{% static  'css/min.css' %}">
+  <link rel="stylesheet" href="{% static  'css/min.css' %}">
+  <script src="{% static 'js/min.js' %}"></script>
+  <title>Demende des reviewers</title>
+  <link rel="stylesheet" href="{% static 'css/red_c.css' %}">
+  <style>
+    .side-navbar {
+      width: 250px;
+      height: 100%;
+      position: fixed;
+      margin-left: -300px;
+      background-color: #ffffffaa;
+      transition: 0.5s;
+    }
+
+    #menu-btn {
+      background-color: #000000;
+      color: #fff;
+      margin-left: -62px;
+    }
+
+    .nav-link:active,
+    .nav-link:focus,
+    .nav-link:hover {
+      background-color: #ffffff31;
+    }
+
+    .my-container {
+      transition: 0.4s;
+    }
+
+    .active-nav {
+      margin-left: 0;
+    }
+
+    /* for main section */
+    .active-cont {
+      margin-left: 250px;
+    }
+
+    #menu-btn {
+      background-color: #000000;
+      color: #fff;
+      margin-left: -62px;
+    }
+
+    .my-container input {
+      border-radius: 2rem;
+      padding: 2px 20px;
+    }
+
+
+    .navbar{
+      background-color: #00000012;
+      box-shadow: 5px 2px 52px;
+      height: auto;
+      
+      }
+      .navbar a{
+      width: 200px;
+      font-size: 20px;
+      color: #fff;
+      }
+      .link:hover,
+      .active {
+          border-bottom: 2px solid #fff;
+      }
+      .navbar button{
+        background:#fff;
+        width: 100%;
+      }
+
+    svg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  </style>
+
+</head>
+
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svgjs="http://svgjs.dev/svgjs" width="1036" height="635" preserveAspectRatio="none" viewBox="0 0 1036 635"
+    class="svg-background">
+    <g mask="url(&quot;#SvgjsMask3553&quot;)" fill="none">
+      <rect width="1036" height="635" x="0" y="0" fill="rgba(149, 192, 237, 0.69)"></rect>
+      <path
+        d="M0,354.435C74.082,349.824,148.039,364.503,217.588,338.574C298.582,308.379,384.256,270.102,427.291,195.137C471.433,118.244,457.256,23.721,449.014,-64.558C440.39,-156.922,437.931,-256.742,378.454,-327.932C318.658,-399.505,222.309,-427.46,130.796,-445.449C45.057,-462.303,-45.939,-463.387,-125.37,-426.973C-199.849,-392.829,-241.588,-317.502,-290.946,-252.106C-336.957,-191.146,-378.216,-130.018,-403.813,-58.06C-434.645,28.612,-488.302,122.002,-454.457,207.543C-420.59,293.139,-323.309,338.475,-235.719,366.786C-159.305,391.485,-80.152,359.423,0,354.435"
+        fill="rgba(36, 123, 215, 0.69)"></path>
+      <path
+        d="M1036 984.509C1105.5819999999999 981.0260000000001 1182.182 990.923 1237.623 948.732 1292.213 907.188 1284.8890000000001 823.1030000000001 1323.025 766.08 1371.951 692.925 1483.314 657.202 1491.218 569.55 1498.923 484.102 1425.234 410.03 1360.174 354.101 1300.137 302.491 1220.589 286.472 1143.091 270.283 1071.074 255.23899999999998 996.021 238.26999999999998 926.948 263.602 859.681 288.272 819.626 352.713 772.1089999999999 406.337 724.023 460.60400000000004 655.49 507.073 647.363 579.122 639.2660000000001 650.911 701.2339999999999 708.465 730.585 774.4780000000001 760.307 841.327 760.691 928.136 820.972 969.5899999999999 881.396 1011.143 962.759 988.1759999999999 1036 984.509"
+        fill="rgba(255, 255, 255, 0.69)"></path>
+    </g>
+    <defs>
+      <mask id="SvgjsMask3553">
+        <rect width="1036" height="635" fill="#ffffff"></rect>
+      </mask>
+    </defs>
+  </svg>
+
+    <!-- Side-Nav -->
+    <div class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column" id="sidebar">
+      <ul class="nav flex-column text-white w-100">
+        <a href="#" class="nav-link h3 text-white my-2">
+
+        </a>
+        <li href="red_c.html" class="nav-link">
+          <i class='bx bx-news'></i>
+          <a href="{% url 'R1'%}">Liste des articles</a>
+        </li>
+       
+        <li href="#" class="nav-link">
+          <i class='bx bx-task'></i>
+          <a  href="{% url 'R2'%}">Article acceptés</a>
+        </li>
+        <li href="#" class="nav-link">
+          <i class='bx bx-group'></i>
+          <a  href="{% url 'tester' %}">Resultat</a>
+        </li>
+        <li href="#" class="nav-link active" style="background-color:#3232324a;" >
+          <i class='bx bx-group'></i>
+          <a  href="{% url 'demrev'%}">Demende des reviewers</a>
+        </li>
+        <li href="#" class="nav-link">
+          <i class='bx bx-list-ul'></i>
+          <a  href="{% url 'supprev'%}">List des reviewers</a>
+        </li>
+        <li href="#" class="nav-link">
+          <i class='bx bx-user-plus'></i>
+          <a  href="{% url 'addr'%}">Ajouter reviewer</a>
+        </li>
+      </ul>
+    </div>
+  
+
+
+  <div class="p-1 my-container active-cont">
+
+    {% if user_role == 'reviewer' %}
+    <nav class="navbar navbar-expand-lg">
+      <a class="btn border-0" id="menu-btn">Menu</a>
+      <div class="container">
+        <a class="navbar-brand" href="#">LOGO .</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav" style="margin-left: 350px;">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'conf' %}">conference</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'rev_p' %}">reviewer</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">About us </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% elif user_role == 'editc' %}
+    <nav class="navbar navbar-expand-lg">
+      <a class="btn border-0" id="menu-btn">Menu</a>
+      <div class="container">
+        <a class="navbar-brand" href="#">LOGO .</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav" style="margin-left: 350px;">
+
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'R1' %}">Ma conference</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'conf' %}">conference</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'archiveconf' %}">Archife</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">About us </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% elif user_role == 'auteur' %}
+    <nav class="navbar  navbar-expand-lg ">
+      <a class="btn border-0" id="menu-btn">Menu</a>
+      <div class="container">
+        <a class="navbar-brand" href="#">LOGO .</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'conf' %}">Conference</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% elif user_role == 'guest' %}
+    <nav class="navbar navbar-expand-lg">
+      <a class="btn border-0" id="menu-btn">Menu</a>
+      <div class="container">
+        <a class="navbar-brand" href="#">LOGO .</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav" style="margin-left: 550px;">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'conf' %}">conference</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{%  url 'about' %}">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}"><i class='bx bxs-user-circle'></i>Se connecter </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'inscription' %}"><i class='bx bxs-user-circle'></i>S'inscrire</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% endif %}
+
+    <h1
+      style="font-family:'Times New Roman', Times, serif; font-weight: 700; text-align: center; color: rgb(25, 21, 86);margin-top:100px">
+      Les Candidatures au poste de reviewers : </h1>
+    <div class="container" style="margin-top:50px; ">
+      <div class="main-body">
+        {% if dem_rev%}
+        {% for X in dem_rev %}
+        <div class="row gutters-sm">
+          <div class="col-md-15">
+            <div class="card mb-3">
+              <div class="card-body">
+                <h2>Candidature ({{forloop.counter}})</h2>
+                <h3>Nom :{{X.dem.user.nom}}</h3>
+                <h3>Prenom:{{X.dem.user.prenom}}</h3>
+                <h4>Spesialité: {{X.dem.user.spe}}</h4>
+                <h4><br>Les travaux :</h4>
+                <ol>
+                  {% for prj in X.prj %}
+
+                  <li><a href="{% url 'detprjrev' prj.id %}" target="_blank">{{prj.titre}}</a></li>
+
+                  {% endfor %}
+                </ol>
+                <h4>Description textuelle : <br></h4>
+                <p>{{X.dem.desctext}}</p>
+
+              </div>
+              <div class="dsision" style="margin: 0 auto; width: 200px;">
+                <button type="button"><a href="{% url 'accepterRev' X.dem.id %}"><i
+                      class='bx bxs-user-check'></i></a></button>
+                <button type="button"><a href="{% url 'refuserRev' X.dem.id %}"><i
+                      class='bx bxs-user-x'></i></a></button>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          {%else %}
+          <h2
+                                        style=" font-size: 48px; font-weight: 600; color: #000; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ; text-align: center;">
+                                        Aucune demande pour le moment ! </h2>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"></script>
+    <script>
+      var menu_btn = document.querySelector("#menu-btn");
+      var sidebar = document.querySelector("#sidebar");
+      var container = document.querySelector(".my-container");
+      menu_btn.addEventListener("click", () => {
+        sidebar.classList.toggle("active-nav");
+        container.classList.toggle("active-cont");
+      });
+
+    </script>
+</body>
+
+</html>

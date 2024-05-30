@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demande de Review</title>
+
+<style>
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #d4e5f5; 
+  }
+
+  header {
+    background-color: #4897ec98;
+    height: 50px;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 5px 5px 20px #000;
+  }
+
+  form {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    height: 150px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+label{
+  font-size: 20px;
+}
+  .dsision {
+    text-align: center;
+  }
+  button{
+    width: 40%;
+    height: 40px;
+    background:linear-gradient(to left, #6a8aae, #fff) ;
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  button:hover{
+    background-color: rgb(36, 131, 225);
+    color: #ffffff;
+  }
+  
+  .navbar{
+            
+    box-shadow: 5px 2px 52px;
+    height: 100px;
+    
+    }
+    .navbar a{
+    width: 200px;
+    font-size: 20px;
+    color: #fff;
+    }
+    .link:hover,
+    .active {
+        border-bottom: 2px solid #fff;
+    }
+</style>
+</head>
+<body>
+  {% if rev %}
+<header>
+  <h1>{{rev.abstract.titre}}</h1>
+</header>
+
+<form  method="POST" action="{% url 'deci' rev.id %}">
+  {% csrf_token %}
+
+  <p>
+  <h2>auteur principal</h2> {{rev.abstract.auteur_principal}}
+  </p>
+  {% if rev.abstract.co_auteur1 %}
+  <p>
+  <h2>co_auteur1:</h2> {{rev.abstract.co_auteur1}}</p>
+  {% endif %}
+  {% if rev.abstract.co_auteur2 %}
+
+  <p>
+  <h2>co_auteur2:</h2>{{rev.abstract.co_auteur2}}</p>
+  {% endif %}
+  {% if rev.abstract.co_auteur3 %}
+  <p>
+  <h2>co_auteur3:</h2> {{rev.abstract.co_auteur3}} </p>  {% endif %}
+
+ 
+  <p>
+    <h3>Le resumé : </h3> {{rev.abstract.abstract}}
+  </p>
+ <hr>
+<label for="review">Donne un feed-back</label>
+  <textarea id="feedback" name="feedback" placeholder="donner un feedback"></textarea>
+   <div class="dsision">
+  <button type="submit" name="action" value="accept">accepter</button>
+  <button type="submit" name="action" value="refuse">refuser</button>
+</div>
+</form>
+{% endif %}
+
+
+</body>
+</html>

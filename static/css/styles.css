@@ -1,0 +1,60 @@
+.side-navbar {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    margin-left: -300px;
+    background-color: #ffffffaa;
+    transition: 0.5s;
+  }
+  
+  .nav-link:active,
+  .nav-link:focus,
+  .nav-link:hover {
+    background-color: #ffffff31;
+  }
+  
+  .my-container {
+    transition: 0.4s;
+  }
+  
+  .active-nav {
+    margin-left: 0;
+  }
+  
+  /* for main section */
+  .active-cont {
+    margin-left: 250px;
+  }
+  
+  #menu-btn {
+    background-color: #000000;
+    color: #fff;
+    margin-left: -62px;
+  }
+  
+  .my-container input {
+    border-radius: 2rem;
+    padding: 2px 20px;
+  }
+  
+  .navbar{
+      background-color: #00000012;
+      box-shadow: 5px 2px 52px;
+      height: 100px;
+    }
+    .navbar  a{
+      width: 200px;
+      font-size: 20px;
+    }svg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Ensure the SVG background is behind other content */
+    }
+    ol a{
+      font-size:20px ;
+      font-weight: 500;
+      color: #0055ff;
+    }

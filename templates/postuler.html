@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static  'css/min.css' %}">
+     <link rel="stylesheet" href="{% static 'css/spiki.css' %}">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+   
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>postuler</title>>
+ <style>
+   
+  .navbar{
+    background-color: #00000012;
+    box-shadow: 5px 2px 52px;
+    height: auto;
+  }
+    .navbar a{
+    width: 200px;
+    font-size: 20px;
+    color: #fff;
+    }
+    .link:hover,
+    .active {
+        border-bottom: 2px solid #fff;
+    }
+    .navbar button{
+      background:#fff;
+      width: 100%;
+    }
+    
+  
+  .svg-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure the SVG background is behind other content */
+  }
+  
+
+  .container-fluid{
+  margin-top: 100px;
+}
+    .form-group{
+      margin-top: 15px;
+    }
+   
+
+label{
+  font-size: 20px;
+}
+input {
+  height: 50px !important;
+  font-size: 20px;
+  margin-top:10px;
+}
+textarea{
+  margin-top: 10px;
+}
+.butt{
+        height: 50px;
+        width: 200px;
+        border: 1px solid black;
+        background-color: rgba(0, 136, 255, 0.607);
+        border-radius: 5px;
+        display: block;
+        margin:10px auto;
+       
+    }
+
+  </style>
+</head>
+
+<body >
+
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="1036" height="635" preserveAspectRatio="none" viewBox="0 0 1036 635" class="svg-background">
+    <g mask="url(&quot;#SvgjsMask3553&quot;)" fill="none">
+      <rect width="1036" height="635" x="0" y="0" fill="rgba(149, 192, 237, 0.69)"></rect>
+      <path d="M0,354.435C74.082,349.824,148.039,364.503,217.588,338.574C298.582,308.379,384.256,270.102,427.291,195.137C471.433,118.244,457.256,23.721,449.014,-64.558C440.39,-156.922,437.931,-256.742,378.454,-327.932C318.658,-399.505,222.309,-427.46,130.796,-445.449C45.057,-462.303,-45.939,-463.387,-125.37,-426.973C-199.849,-392.829,-241.588,-317.502,-290.946,-252.106C-336.957,-191.146,-378.216,-130.018,-403.813,-58.06C-434.645,28.612,-488.302,122.002,-454.457,207.543C-420.59,293.139,-323.309,338.475,-235.719,366.786C-159.305,391.485,-80.152,359.423,0,354.435" fill="rgba(36, 123, 215, 0.69)"></path>
+      <path d="M1036 984.509C1105.5819999999999 981.0260000000001 1182.182 990.923 1237.623 948.732 1292.213 907.188 1284.8890000000001 823.1030000000001 1323.025 766.08 1371.951 692.925 1483.314 657.202 1491.218 569.55 1498.923 484.102 1425.234 410.03 1360.174 354.101 1300.137 302.491 1220.589 286.472 1143.091 270.283 1071.074 255.23899999999998 996.021 238.26999999999998 926.948 263.602 859.681 288.272 819.626 352.713 772.1089999999999 406.337 724.023 460.60400000000004 655.49 507.073 647.363 579.122 639.2660000000001 650.911 701.2339999999999 708.465 730.585 774.4780000000001 760.307 841.327 760.691 928.136 820.972 969.5899999999999 881.396 1011.143 962.759 988.1759999999999 1036 984.509" fill="rgba(255, 255, 255, 0.69)"></path>
+    </g>
+    <defs>
+      <mask id="SvgjsMask3553">
+        <rect width="1036" height="635" fill="#ffffff"></rect>
+      </mask>
+    </defs>
+  </svg>
+ 
+
+{% if user_role == 'reviewer' %}
+<nav class="navbar navbar-expand-lg">
+   <div class="container">
+     <a class="navbar-brand" href="#">LOGO .</a>
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+       <ul class="navbar-nav" style="margin-left: 350px;">
+         <li class="nav-item active">
+           <a class="nav-link" href="{% url 'conf' %}">conference</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="{% url 'rev_p' %}">reviewer</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+         </li>
+          <li class="nav-item">
+           <a class="nav-link" href="{% url 'about' %}">About us </a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+         </li>
+       </ul>
+     </div>
+   </div>
+ </nav>
+ {% elif user_role == 'editc' %}
+ <nav class="navbar navbar-expand-lg">
+   <div class="container">
+     <a class="navbar-brand" href="#">LOGO .</a>
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+       <ul class="navbar-nav" style="margin-left: 350px;">
+         
+         <li class="nav-item">
+           <a class="nav-link" href="{% url 'R1' %}">article</a>
+         </li>
+           <li class="nav-item">
+           <a class="nav-link" href="{% url 'conf' %}">conference</a>
+         </li>
+        
+         <li class="nav-item">
+           <a class="nav-link" href="{% url 'archiveconf' %}">Archife</a>
+         </li>
+          <li class="nav-item">
+           <a class="nav-link" href="{% url 'about' %}">About us </a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+         </li>
+       </ul>
+     </div>
+   </div>
+ </nav>
+ {% elif user_role == 'auteur' %}
+ <nav class="navbar  navbar-expand-lg ">
+   <a class="btn border-0" id="menu-btn">Menu</a>
+     <div class="container">
+       <a class="navbar-brand" href="#">LOGO .</a>
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+         <ul class="navbar-nav">
+           <li class="nav-item">
+             <a class="nav-link active" aria-current="page" href="{% url 'conf' %}">Conference</a>
+           </li>
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+          </li>
+           <li class="nav-item">
+             <a class="nav-link" href="{% url 'profil' %}">Profile</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="{% url 'about' %}">About</a>
+           </li>
+         </ul>
+       </div>
+     </div>
+ </nav>
+ {% elif user_role == 'guest' %}
+ <nav class="navbar navbar-expand-lg">
+   <div class="container">
+     <a class="navbar-brand" href="#">LOGO .</a>
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse justify-content-evenly navbar-collapse" id="navbarNav">
+       <ul class="navbar-nav" style="margin-left: 550px;">
+         <li class="nav-item">
+           <a class="nav-link" href="{% url 'conf' %}">conference</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="{% url 'archiveconf' %}">Archive</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="{%  url 'about' %}">About us</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="{% url 'login' %}"><i class='bx bxs-user-circle'></i>Se connecter </a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="{% url 'inscription' %}"><i class='bx bxs-user-circle'></i>S'inscrire</a>
+         </li>
+       </ul>
+     </div>
+   </div>
+ </nav>
+{% endif %}
+
+
+  <div class="container center" style=" align-items: center; justify-content: center; background-color: rgb(255, 255, 255); width: 50%; border: 1px ;border-radius: 20px; box-shadow: 1px 10px 10px #000 ; margin-top: 100px;">
+
+    {% if messages %}
+    <div class="error-message" style="color:red; text-align: center;  font-size: 20px;
+    font-weight: 500; height:50px;">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <div class="row">
+      <div class="col-md-15">
+        <h2 style="padding: 20px;">Poster a la Conférence</h2>
+        <form method="POST" action="">
+            {% csrf_token %}
+          <div class="form-group">
+            <label for="nomAuteur">Nom de l'Auteur</label>
+                        <p style="font-size: large;">{{user.nom }}  {{user.prenom }}</p>
+
+          </div>
+            <div class="form-group">
+            <label for="theme">Postuler pour :</label>
+            <p style="font-size: large;">{{conf.nomc}}</p>
+          </div>
+          <div class="form-group">
+            <label for="titer">Titer</label>
+            <input type="text" class="form-control " placeholder="Entrez le titer de l'article" name="titre" id="titre" required>
+          </div>
+          <div id="coAuteursGroup">
+            <div class="form-group">
+              <label for="coAuteurs">Co-Auteurs</label>
+              <input type="text" class="form-control coAuteur" name="co_auteurs[]" placeholder="Entrez l'email du co-auteur">
+            </div>
+          </div>
+          <button type="button" class="btn btn-secondary"  style="margin: 10px auto;" id="ajouterCoAuteur" > Ajouter un Co-Auteur</button>
+
+          <div class="form-group">
+            <label for="abstract">Abstract</label>
+            <textarea class="form-control" id="abstract" name="abstract" rows="5" placeholder="Entrez l'abstract de la conférence" required></textarea>
+
+          </div>
+          <button type="submit" class="butt" >Envoyer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  
+  <script>$(document).ready(function() {
+    var maxCoAuthors = 3; 
+    var coAuthorCount = 1; 
+
+    $('#ajouterCoAuteur').click(function() {
+      if (coAuthorCount < maxCoAuthors) {
+        var newCoAuteurField = $('<div class="form-group"><label for="coAuteurs">Co-Auteurs</label><input type="text" class="form-control coAuteur" name="co_auteurs[]" placeholder="Entrez les noms des co-auteurs"></div>');
+        $('#coAuteursGroup').append(newCoAuteurField);
+        coAuthorCount++;
+
+     
+        if (coAuthorCount === maxCoAuthors) {
+          $(this).prop('disabled', true);
+        }
+      }
+    });
+  });
+  </script>
+
+
+</body>
+
+</html>
